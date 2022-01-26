@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Success";
+}
+@model Movies
+<div class="text-center">
+    <h1>@Model.Title Was Saved Successfuly</h1>
+    <br />
+    <br />
+    <a class="btn btn-primary btn-large" asp-controller="Home" asp-action="AddMovie">Add Another Movie</a>
+</div>

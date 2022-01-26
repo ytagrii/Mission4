@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Add Movie";
+}
+@model Movies
+<div class="text-center">
+    <h1>Add A New Movie</h1>
+</div>
+<div class="text-center">
+    <!--Start From-->
+    <form method="post">
+        <div class="row">
+            <!--Category  -->
+            <div class="col-6">
+                <label asp-for="Category">Category</label>
+                <br />
+                <input asp-for="Category" />
+                <br />
+                <span asp-validation-for="Category" class="text-danger"></span><br /><br />
+            </div>
+
+            <!-- Title -->
+            <div class="col-6">
+                <label asp-for="Title">Title</label>
+                <br />
+                <input asp-for="Title" />
+                <br />
+                <span asp-validation-for="Title" class="text-danger"></span><br /><br />
+            </div>
+
+            <!-- Year -->
+            <div class="col-6">
+                <label asp-for="Year">Year</label>
+                <br />
+                <input asp-for="Year" />
+                <br />
+                <span asp-validation-for="Year" class="text-danger"></span><br /><br />
+            </div>
+
+            <!-- Director -->
+            <div class="col-6">
+                <label asp-for="Director">Director</label>
+                <br />
+                <input asp-for="Director" />
+                <br />
+                <span asp-validation-for="Director" class="text-danger"></span><br /><br />
+            </div>
+
+            <!-- Rating -->
+            <div class="col-6">
+                <label asp-for="Rating">Rating</label>
+                <br />
+                <select asp-for="Rating">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                </select>
+                <br />
+            </div>
+
+            <!-- edited -->
+            <div class="col-6">
+                <label asp-for="Edited">Edited</label>
+                <br />
+                <select asp-for="Edited">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+                <br />
+            </div>
+
+            <!-- LentTo -->
+            <div class="col-6">
+                <label asp-for="LentTo">Lent To</label>
+                <br />
+                <input asp-for="LentTo" />
+                <br />
+            </div>
+
+            <!-- Notes -->
+            <div class="col-6">
+                <label asp-for="Notes">Notes</label>
+                <br />
+                <input asp-for="Notes" />
+                <br />
+                <br />
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12">
+                <br />
+                <input class="btn btn-primary btn-large" type="submit" value="Save" />
+            </div>
+        </div>
+        
+
+    </form>
+</div>
