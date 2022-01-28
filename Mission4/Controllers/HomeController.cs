@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission4.Models;
 
@@ -19,20 +20,35 @@ namespace Mission4.Controllers
         {
             _logger = logger;
             _moviesContext = movieDB;
+            
         }
 
+        //display home page
         public IActionResult Index()
         {
             return View();
         }
 
+        //display podcast page
         public IActionResult Podcasts()
         {
             return View();
         }
+
+        //display all movies
+        public IActionResult AllMovies()
+        {
+            var movies = _moviesContext.responses.Include(x => x.Rating).Include(x => x.Category).Include(x => x.Director).ToList();
+            return View(movies);
+        }
+
         [HttpGet]
         public IActionResult AddMovie()
         {
+            ViewBag.Rating = _moviesContext.ratings.ToList();
+            ViewBag.Director = _moviesContext.directors.ToList();
+            ViewBag.Category = _moviesContext.categories.ToList();
+            
             return View();
         }
         [HttpPost]

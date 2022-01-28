@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "All Movies";
+}
+@model List<Movies>
+
+<div class="text-center">
+    <h1>All Movies</h1>
+</div>
+
+<table style="margin-left:auto; margin-right:auto;" class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var x in Model)
+        {
+        <tr>
+            <td>@x.Category.cName</td>
+            <td>@x.Title</td>
+            <td>@x.Year</td>
+            <td>@x.Director.dFirstName @x.Director.dLastName</td>
+            <td>@x.Rating.rateName</td>
+            <td>@x.Edited</td>
+            <td>@x.LentTo</td>
+            <td>
+                <form>
+                    <input type="hidden" value="@x.MovieId" />
+                    <input type="submit" value="Edit" class="btn btn-secondary btn-small" />
+                </form>
+            </td>
+        </tr>  
+        }
+    </tbody>
+</table>

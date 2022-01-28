@@ -9,24 +9,33 @@ namespace Mission4.Models
         public int MovieId { get; set; }
 
         [Required]
-        public string Category { get; set; }
-
-        [Required]
         public string Title { get; set; }
 
         [Required]
         public ushort Year { get; set; }
-
-        [Required]
-        public string Director { get; set; }
-
-        [Required]
-        public string Rating { get; set; }
 
         public bool Edited { get; set; }
         public string LentTo { get; set; }
 
         [StringLength(25)]
         public string Notes { get; set; }
+
+
+        //forien key relationship with director
+        [Required]
+        public int DirectorId { get; set; }
+        public Director Director { get; set; }
+
+        //foreign key with category
+        [Required]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        //foregn key for ratings
+        [Required]
+        public int RatingId { get; set; }
+        public Rating Rating { get; set; }
+
+
     }
 }

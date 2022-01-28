@@ -11,39 +11,99 @@ namespace Mission4.Models
         }
 
         public DbSet<Movies> responses { get; set; }
+        public DbSet<Category> categories { get; set; }
+        public DbSet<Director> directors { get; set; }
+        public DbSet<Rating> ratings { get; set; }
+            protected override void OnModelCreating(ModelBuilder mb)
+            {
+                mb.Entity<Category>().HasData(
+                    new Category
+                    {
+                        CategoryId = 1,
+                        cName = "Action/Adventure"
+                    },
+                    new Category
+                    {
+                        CategoryId = 2,
+                        cName = "War"
+                    }
 
-        protected override void OnModelCreating(ModelBuilder mb)
-        {
-            //seed 3 movies
-            mb.Entity<Movies>().HasData(
-                new Movies
-                {
-                    MovieId = 1,
-                    Title = "Inception",
-                    Category = "Action/Adventure",
-                    Year = 2010,
-                    Director = "Christopher Nolan",
-                    Rating = "PG-13"
-                },
-                new Movies
-                {
-                    MovieId = 2,
-                    Title = "Spiderman No Way Home",
-                    Category = "Action/Adventure",
-                    Year = 2021,
-                    Director = "Jon Watts",
-                    Rating = "PG-13"
-                },
-                new Movies
-                {
-                    MovieId = 3,
-                    Title = "1917",
-                    Category = "War",
-                    Year = 2019,
-                    Director = "Sam Mendes",
-                    Rating = "R"
-                }
-            );
+                );
+                mb.Entity<Director>().HasData(
+                    new Director
+                    {
+                        DirectorId = 1,
+                        dFirstName = "Christopher",
+                        dLastName = "Nolan"
+                    },
+                    new Director
+                    {
+                        DirectorId = 2,
+                        dFirstName = "Jon",
+                        dLastName = "Watts"
+                    },
+                    new Director
+                    {
+                        DirectorId = 3,
+                        dFirstName = "Sam",
+                        dLastName = "Mendes"
+                    }
+                );
+
+                mb.Entity<Rating>().HasData(
+                    new Rating
+                    {
+                        RatingId = 1,
+                        rateName = "G"
+                    },
+                    new Rating
+                    {
+                        RatingId = 2,
+                        rateName = "PG"
+                    },
+                    new Rating
+                    {
+                        RatingId = 3,
+                        rateName = "PG-13"
+                    },
+                    new Rating
+                    {
+                        RatingId = 4,
+                        rateName = "R"
+                    }
+                );
+
+
+                //seed 3 movies
+                mb.Entity<Movies>().HasData(
+                    new Movies
+                    {
+                        MovieId = 1,
+                        Title = "Inception",
+                        CategoryId = 1,
+                        Year = 2010,
+                        DirectorId = 1,
+                        RatingId = 3
+                    },
+                    new Movies
+                    {
+                        MovieId = 2,
+                        Title = "Spiderman No Way Home",
+                        CategoryId = 1,
+                        Year = 2021,
+                        DirectorId = 2,
+                        RatingId = 3
+                    },
+                    new Movies
+                    {
+                        MovieId = 3,
+                        Title = "1917",
+                        CategoryId = 2,
+                        Year = 2019,
+                        DirectorId = 3,
+                        RatingId = 4
+                    }
+                );
         }
     }
 }

@@ -11,9 +11,15 @@
         <div class="row">
             <!--Category  -->
             <div class="col-6">
-                <label asp-for="Category">Category</label>
+                <label asp-for="CategoryId">Category</label>
                 <br />
-                <input asp-for="Category" />
+                <select asp-for="CategoryId">
+                    <option value="">Select A Category</option>
+                    @foreach (Category r in ViewBag.Category)
+                    {
+                        <option value="@r.CategoryId">@r.cName</option>
+                    }
+                </select>
                 <br />
                 <span asp-validation-for="Category" class="text-danger"></span><br /><br />
             </div>
@@ -47,13 +53,14 @@
 
             <!-- Rating -->
             <div class="col-6">
-                <label asp-for="Rating">Rating</label>
+                <label asp-for="RatingId">Rating</label>
                 <br />
-                <select asp-for="Rating">
-                    <option value="G">G</option>
-                    <option value="PG">PG</option>
-                    <option value="PG-13">PG-13</option>
-                    <option value="R">R</option>
+                <select asp-for="RatingId">
+                    <option value="">Select A Rating</option>
+                    @foreach(Rating r in ViewBag.Rating)
+                    {
+                        <option value="@r.RatingId">@r.rateName</option>
+                    }
                 </select>
                 <br />
             </div>
