@@ -16,6 +16,7 @@ namespace Mission4.Models
         public DbSet<Rating> ratings { get; set; }
             protected override void OnModelCreating(ModelBuilder mb)
             {
+                //seed categories
                 mb.Entity<Category>().HasData(
                     new Category
                     {
@@ -84,6 +85,7 @@ namespace Mission4.Models
                 //    }
                 //);
 
+                //seed ratings
                 mb.Entity<Rating>().HasData(
                     new Rating
                     {
