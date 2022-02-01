@@ -23,8 +23,8 @@ namespace Mission4.Models
 
         //forien key relationship with director
         [Required]
-        public int DirectorId { get; set; }
-        public Director Director { get; set; }
+        public string Director { get; set; }
+        //public Director Director { get; set; }
 
         //foreign key with category
         [Required]

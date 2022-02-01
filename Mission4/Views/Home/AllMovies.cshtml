@@ -18,6 +18,7 @@
             <td>Edited</td>
             <td>Lent To</td>
             <td></td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -27,15 +28,19 @@
             <td>@x.Category.cName</td>
             <td>@x.Title</td>
             <td>@x.Year</td>
-            <td>@x.Director.dFirstName @x.Director.dLastName</td>
+            <td>@x.Director</td>
             <td>@x.Rating.rateName</td>
             <td>@x.Edited</td>
             <td>@x.LentTo</td>
             <td>
-                <form>
+                @*<form>
                     <input type="hidden" value="@x.MovieId" />
                     <input type="submit" value="Edit" class="btn btn-secondary btn-small" />
-                </form>
+                </form>*@
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId" class="btn btn-primary btn-small">Edit</a>
+            </td>
+            <td>
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId" class="btn btn-secondary btn-small">Delete</a>
             </td>
         </tr>  
         }

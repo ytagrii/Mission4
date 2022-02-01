@@ -12,7 +12,7 @@ namespace Mission4.Models
 
         public DbSet<Movies> responses { get; set; }
         public DbSet<Category> categories { get; set; }
-        public DbSet<Director> directors { get; set; }
+        //public DbSet<Director> directors { get; set; }
         public DbSet<Rating> ratings { get; set; }
             protected override void OnModelCreating(ModelBuilder mb)
             {
@@ -29,26 +29,26 @@ namespace Mission4.Models
                     }
 
                 );
-                mb.Entity<Director>().HasData(
-                    new Director
-                    {
-                        DirectorId = 1,
-                        dFirstName = "Christopher",
-                        dLastName = "Nolan"
-                    },
-                    new Director
-                    {
-                        DirectorId = 2,
-                        dFirstName = "Jon",
-                        dLastName = "Watts"
-                    },
-                    new Director
-                    {
-                        DirectorId = 3,
-                        dFirstName = "Sam",
-                        dLastName = "Mendes"
-                    }
-                );
+                //mb.Entity<Director>().HasData(
+                //    new Director
+                //    {
+                //        DirectorId = 1,
+                //        dFirstName = "Christopher",
+                //        dLastName = "Nolan"
+                //    },
+                //    new Director
+                //    {
+                //        DirectorId = 2,
+                //        dFirstName = "Jon",
+                //        dLastName = "Watts"
+                //    },
+                //    new Director
+                //    {
+                //        DirectorId = 3,
+                //        dFirstName = "Sam",
+                //        dLastName = "Mendes"
+                //    }
+                //);
 
                 mb.Entity<Rating>().HasData(
                     new Rating
@@ -82,7 +82,7 @@ namespace Mission4.Models
                         Title = "Inception",
                         CategoryId = 1,
                         Year = 2010,
-                        DirectorId = 1,
+                        Director = "Christopher Nolan",
                         RatingId = 3
                     },
                     new Movies
@@ -91,7 +91,7 @@ namespace Mission4.Models
                         Title = "Spiderman No Way Home",
                         CategoryId = 1,
                         Year = 2021,
-                        DirectorId = 2,
+                        Director = "Jon Watts",
                         RatingId = 3
                     },
                     new Movies
@@ -100,7 +100,7 @@ namespace Mission4.Models
                         Title = "1917",
                         CategoryId = 2,
                         Year = 2019,
-                        DirectorId = 3,
+                        Director = "Sam Mendes",
                         RatingId = 4
                     }
                 );

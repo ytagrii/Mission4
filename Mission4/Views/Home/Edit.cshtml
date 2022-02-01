@@ -1,13 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Add Movie";
+    ViewData["Title"] = "Edit Movie";
 }
 @model Movies
 <div class="text-center">
-    <h1>Add A New Movie</h1>
+    <h1>Edit @Model.Title</h1>
 </div>
 <div class="text-center">
     <!--Start From-->
     <form method="post">
+        <input asp-for="MovieId" type="hidden" />
         <div class="row">
             <!--Category  -->
             <div class="col-6">

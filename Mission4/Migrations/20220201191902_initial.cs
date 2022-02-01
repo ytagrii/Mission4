@@ -20,20 +20,6 @@ namespace Mission4.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "directors",
-                columns: table => new
-                {
-                    DirectorId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    dFirstName = table.Column<string>(nullable: false),
-                    dLastName = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_directors", x => x.DirectorId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ratings",
                 columns: table => new
                 {
@@ -57,7 +43,7 @@ namespace Mission4.Migrations
                     Edited = table.Column<bool>(nullable: false),
                     LentTo = table.Column<string>(nullable: true),
                     Notes = table.Column<string>(maxLength: 25, nullable: true),
-                    DirectorId = table.Column<int>(nullable: false),
+                    Director = table.Column<string>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     RatingId = table.Column<int>(nullable: false)
                 },
@@ -69,12 +55,6 @@ namespace Mission4.Migrations
                         column: x => x.CategoryId,
                         principalTable: "categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_responses_directors_DirectorId",
-                        column: x => x.DirectorId,
-                        principalTable: "directors",
-                        principalColumn: "DirectorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_responses_ratings_RatingId",
@@ -93,21 +73,6 @@ namespace Mission4.Migrations
                 table: "categories",
                 columns: new[] { "CategoryId", "cName" },
                 values: new object[] { 2, "War" });
-
-            migrationBuilder.InsertData(
-                table: "directors",
-                columns: new[] { "DirectorId", "dFirstName", "dLastName" },
-                values: new object[] { 1, "Christopher", "Nolan" });
-
-            migrationBuilder.InsertData(
-                table: "directors",
-                columns: new[] { "DirectorId", "dFirstName", "dLastName" },
-                values: new object[] { 2, "Jon", "Watts" });
-
-            migrationBuilder.InsertData(
-                table: "directors",
-                columns: new[] { "DirectorId", "dFirstName", "dLastName" },
-                values: new object[] { 3, "Sam", "Mendes" });
 
             migrationBuilder.InsertData(
                 table: "ratings",
@@ -131,28 +96,23 @@ namespace Mission4.Migrations
 
             migrationBuilder.InsertData(
                 table: "responses",
-                columns: new[] { "MovieId", "CategoryId", "DirectorId", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
-                values: new object[] { 1, 1, 1, false, null, null, 3, "Inception", (ushort)2010 });
+                columns: new[] { "MovieId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
+                values: new object[] { 1, 1, "Christopher Nolan", false, null, null, 3, "Inception", (ushort)2010 });
 
             migrationBuilder.InsertData(
                 table: "responses",
-                columns: new[] { "MovieId", "CategoryId", "DirectorId", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
-                values: new object[] { 2, 1, 2, false, null, null, 3, "Spiderman No Way Home", (ushort)2021 });
+                columns: new[] { "MovieId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
+                values: new object[] { 2, 1, "Jon Watts", false, null, null, 3, "Spiderman No Way Home", (ushort)2021 });
 
             migrationBuilder.InsertData(
                 table: "responses",
-                columns: new[] { "MovieId", "CategoryId", "DirectorId", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
-                values: new object[] { 3, 2, 3, false, null, null, 4, "1917", (ushort)2019 });
+                columns: new[] { "MovieId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "RatingId", "Title", "Year" },
+                values: new object[] { 3, 2, "Sam Mendes", false, null, null, 4, "1917", (ushort)2019 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_responses_CategoryId",
                 table: "responses",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_responses_DirectorId",
-                table: "responses",
-                column: "DirectorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_responses_RatingId",
@@ -167,9 +127,6 @@ namespace Mission4.Migrations
 
             migrationBuilder.DropTable(
                 name: "categories");
-
-            migrationBuilder.DropTable(
-                name: "directors");
 
             migrationBuilder.DropTable(
                 name: "ratings");

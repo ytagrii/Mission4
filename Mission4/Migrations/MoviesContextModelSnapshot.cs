@@ -42,45 +42,6 @@ namespace Mission4.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission4.Models.Director", b =>
-                {
-                    b.Property<int>("DirectorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("dFirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("dLastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("DirectorId");
-
-                    b.ToTable("directors");
-
-                    b.HasData(
-                        new
-                        {
-                            DirectorId = 1,
-                            dFirstName = "Christopher",
-                            dLastName = "Nolan"
-                        },
-                        new
-                        {
-                            DirectorId = 2,
-                            dFirstName = "Jon",
-                            dLastName = "Watts"
-                        },
-                        new
-                        {
-                            DirectorId = 3,
-                            dFirstName = "Sam",
-                            dLastName = "Mendes"
-                        });
-                });
-
             modelBuilder.Entity("Mission4.Models.Movies", b =>
                 {
                     b.Property<int>("MovieId")
@@ -90,8 +51,9 @@ namespace Mission4.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DirectorId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Director")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("Edited")
                         .HasColumnType("INTEGER");
@@ -117,8 +79,6 @@ namespace Mission4.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("DirectorId");
-
                     b.HasIndex("RatingId");
 
                     b.ToTable("responses");
@@ -128,7 +88,7 @@ namespace Mission4.Migrations
                         {
                             MovieId = 1,
                             CategoryId = 1,
-                            DirectorId = 1,
+                            Director = "Christopher Nolan",
                             Edited = false,
                             RatingId = 3,
                             Title = "Inception",
@@ -138,7 +98,7 @@ namespace Mission4.Migrations
                         {
                             MovieId = 2,
                             CategoryId = 1,
-                            DirectorId = 2,
+                            Director = "Jon Watts",
                             Edited = false,
                             RatingId = 3,
                             Title = "Spiderman No Way Home",
@@ -148,7 +108,7 @@ namespace Mission4.Migrations
                         {
                             MovieId = 3,
                             CategoryId = 2,
-                            DirectorId = 3,
+                            Director = "Sam Mendes",
                             Edited = false,
                             RatingId = 4,
                             Title = "1917",
@@ -198,12 +158,6 @@ namespace Mission4.Migrations
                     b.HasOne("Mission4.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Mission4.Models.Director", "Director")
-                        .WithMany()
-                        .HasForeignKey("DirectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
