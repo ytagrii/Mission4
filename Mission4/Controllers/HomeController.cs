@@ -85,6 +85,7 @@ namespace Mission4.Controllers
 
         }
 
+        //Edit movie (actually update here)
         [HttpPost]
         public IActionResult Edit(Movies mr)
         {
@@ -93,7 +94,7 @@ namespace Mission4.Controllers
             return RedirectToAction("AllMovies");
         }
 
-        //delete movie
+        //delete movie (ask)
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -102,6 +103,7 @@ namespace Mission4.Controllers
 
         }
 
+        //Final Delete movie
         [HttpPost]
         public IActionResult Delete(Movies mr)
         {

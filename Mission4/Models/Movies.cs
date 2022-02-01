@@ -11,7 +11,7 @@ namespace Mission4.Models
         [Required]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please Type a Valid Year")]
         public ushort Year { get; set; }
 
         public bool Edited { get; set; }
@@ -29,11 +29,13 @@ namespace Mission4.Models
         //foreign key with category
         [Required]
         public int CategoryId { get; set; }
+
         public Category Category { get; set; }
 
         //foregn key for ratings
         [Required]
         public int RatingId { get; set; }
+  
         public Rating Rating { get; set; }
 
 

@@ -3,7 +3,7 @@
 }
 @model Movies
 <div class="text-center">
-    <h1>Edit @Model.Title</h1>
+    <h1>Edit Movie (@Model.Title)</h1>
 </div>
 <div class="text-center">
     <!--Start From-->
@@ -11,10 +11,10 @@
         <input asp-for="MovieId" type="hidden" />
         <div class="row">
             <!--Category  -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="CategoryId">Category</label>
                 <br />
-                <select asp-for="CategoryId">
+                <select asp-for="CategoryId" class="form-control">
                     <option value="">Select a Category</option>
                     @foreach (Category r in ViewBag.Category)
                     {
@@ -26,37 +26,37 @@
             </div>
 
             <!-- Title -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="Title">Title</label>
                 <br />
-                <input asp-for="Title" />
+                <input asp-for="Title" class="form-control" />
                 <br />
                 <span asp-validation-for="Title" class="text-danger"></span><br /><br />
             </div>
 
             <!-- Year -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="Year">Year</label>
                 <br />
-                <input asp-for="Year" />
+                <input asp-for="Year" class="form-control" />
                 <br />
                 <span asp-validation-for="Year" class="text-danger"></span><br /><br />
             </div>
 
             <!-- Director -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="Director">Director</label>
                 <br />
-                <input asp-for="Director" />
+                <input asp-for="Director"  class="form-control"/>
                 <br />
                 <span asp-validation-for="Director" class="text-danger"></span><br /><br />
             </div>
 
             <!-- Rating -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="RatingId">Rating</label>
                 <br />
-                <select asp-for="RatingId">
+                <select asp-for="RatingId" class="form-control">
                     <option value="">Select a Rating</option>
                     @foreach (Rating r in ViewBag.Rating)
                     {
@@ -67,10 +67,10 @@
             </div>
 
             <!-- edited -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="Edited">Edited</label>
                 <br />
-                <select asp-for="Edited">
+                <select asp-for="Edited" class="form-control">
                     <option value="false">No</option>
                     <option value="true">Yes</option>
                 </select>
@@ -78,24 +78,24 @@
             </div>
 
             <!-- LentTo -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="LentTo">Lent To</label>
                 <br />
-                <input asp-for="LentTo" />
+                <input asp-for="LentTo" class="form-control" />
                 <br />
             </div>
 
             <!-- Notes -->
-            <div class="col-6">
+            <div class="col-6 form-group">
                 <label asp-for="Notes">Notes</label>
                 <br />
-                <input asp-for="Notes" />
+                <input asp-for="Notes"  class="form-control"/>
                 <br />
                 <br />
             </div>
 
             <!-- Submit -->
-            <div class="col-12">
+            <div class="col-12 form-group">
                 <br />
                 <input class="btn btn-primary btn-large" type="submit" value="Save" />
             </div>
