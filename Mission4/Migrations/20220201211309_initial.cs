@@ -67,12 +67,47 @@ namespace Mission4.Migrations
             migrationBuilder.InsertData(
                 table: "categories",
                 columns: new[] { "CategoryId", "cName" },
-                values: new object[] { 1, "Action/Adventure" });
+                values: new object[] { 1, "Action / Adventure" });
 
             migrationBuilder.InsertData(
                 table: "categories",
                 columns: new[] { "CategoryId", "cName" },
                 values: new object[] { 2, "War" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 3, "Comedy" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 4, "Drama" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 5, "Family" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 6, "Horror / Suspense" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 7, "Miscellaneous" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 8, "Television" });
+
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "CategoryId", "cName" },
+                values: new object[] { 9, "VHS" });
 
             migrationBuilder.InsertData(
                 table: "ratings",

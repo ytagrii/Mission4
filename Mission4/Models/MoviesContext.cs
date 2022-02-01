@@ -20,14 +20,48 @@ namespace Mission4.Models
                     new Category
                     {
                         CategoryId = 1,
-                        cName = "Action/Adventure"
+                        cName = "Action / Adventure"
                     },
                     new Category
                     {
                         CategoryId = 2,
                         cName = "War"
+                    },
+                    new Category
+                    {
+                        CategoryId = 3,
+                        cName = "Comedy"
+                    },
+                    new Category
+                    {
+                        CategoryId = 4,
+                        cName = "Drama"
+                    },
+                    new Category
+                    {
+                        CategoryId = 5,
+                        cName = "Family"
+                    },
+                    new Category
+                    {
+                        CategoryId = 6,
+                        cName = "Horror / Suspense"
+                    },
+                    new Category
+                    {
+                        CategoryId = 7,
+                        cName = "Miscellaneous"
+                    },
+                    new Category
+                    {
+                        CategoryId = 8,
+                        cName = "Television"
+                    },
+                    new Category
+                    {
+                        CategoryId = 9,
+                        cName = "VHS"
                     }
-
                 );
                 //mb.Entity<Director>().HasData(
                 //    new Director

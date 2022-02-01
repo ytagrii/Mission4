@@ -8,7 +8,7 @@ using Mission4.Models;
 namespace Mission4.Migrations
 {
     [DbContext(typeof(MoviesContext))]
-    [Migration("20220201191902_initial")]
+    [Migration("20220201211309_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,12 +35,47 @@ namespace Mission4.Migrations
                         new
                         {
                             CategoryId = 1,
-                            cName = "Action/Adventure"
+                            cName = "Action / Adventure"
                         },
                         new
                         {
                             CategoryId = 2,
                             cName = "War"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            cName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            cName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            cName = "Family"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            cName = "Horror / Suspense"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            cName = "Miscellaneous"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            cName = "Television"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            cName = "VHS"
                         });
                 });
 
